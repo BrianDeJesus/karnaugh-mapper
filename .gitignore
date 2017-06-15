@@ -1,0 +1,6 @@
+# DS store
+.DS_Store
+
+# bytecode
+__pycache__/
+*.py[cod]
