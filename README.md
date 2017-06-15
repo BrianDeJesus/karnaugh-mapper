@@ -14,5 +14,5 @@ This program simplifies boolean expressions using the k-map method.
 * Run the following file with Python 3 like this:
 
 ```
-python3 karnaughmapsolver.py
+$ python3 karnaughmapsolver.py
 ```
