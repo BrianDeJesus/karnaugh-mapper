@@ -3,7 +3,7 @@
 This program simplifies boolean expressions using the k-map method.
 
 
-* The result will be sop (sum of products) form
+* The result will be in sop (sum of products) form
 
 * Simplifies Boolean expressions for up to four variables
 
