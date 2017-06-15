@@ -1,3 +1,4 @@
+
 #Boolean expression simplifier using kmap procedure
 from input_getter import get_input
 from kmap_init import BuildMap
