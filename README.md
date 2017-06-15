@@ -11,8 +11,8 @@ This program simplifies boolean expressions using the k-map method.
 
   * Example: A four variable map would use AB for the rows and CD for the columns
 
-* Run the following file with Python 3:
+* Run the following file with Python 3 like this:
 
-'''
-karnaughmapsolver.py
-'''
+'<
+python3 karnaughmapsolver.py
+>'
