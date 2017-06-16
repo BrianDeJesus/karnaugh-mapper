@@ -1,44 +1,31 @@
 #input menu
+import argparse
 import exceptions
 
+
 def get_input():
-    minterms = []
-    while True:
-        try:
-            var_amount = int(input("Please enter 4 to use a 4 variable kmap, 3 to use a 3 variable kmap, or 2 to use a 2 variable kmap: "))
-            if var_amount < 2 or var_amount > 4:
-                raise exceptions.InvalidInputError("{} is out of range. " .format(var_amount))
-            break
-        except ValueError:
-            print("Invalid input. ")
+    parser = argparse.ArgumentParser()
 
-    if var_amount == 4:
-        minterms = get_mins()
-        if len(minterms) > 16:
-            raise exceptions.InputLengthError("Too many minterms. ")
-        for num in minterms:
-            if num > 15:
-                raise exceptions.InvalidInputError("Minterm: {} is out of range. " .format(num))
-    elif var_amount == 3:
-        minterms = get_mins()
-        if len(minterms) > 8:
-            raise exceptions.InputLengthError("Too many minterms. ")
-        for num in minterms:
-            if num > 7:
-                raise exceptions.InvalidInputError("Minterm: {} is out of range. " .format(num))
-    elif var_amount == 2:
-        minterms = get_mins()
-        if len(minterms) > 4:
-            raise exceptions.InputLengthError("Too many minterms. ")
-        for num in minterms:
-            if num > 3:
-                raise exceptions.InvalidInputError("Minterm: {} is out of range. " .format(num))
+    parser.add_argument('--variable_count', '-n' ,type=int, choices=range(2,5), required=True)
+    parser.add_argument('--minterms', '-m', nargs='+', required=True, type=int)
+    args = parser.parse_args()
 
-    return list(set(minterms)), var_amount
+    if args.variable_count == 2:
+        check_minterms(args, 3)
+        check_length(args, 4)
+    elif args.variable_count == 3:
+        check_minterms(args, 7)
+        check_length(args, 8)
+    elif args.variable_count == 4:
+        check_minterms(args, 15)
+        check_length(args, 16)
+    return list(set(args.minterms)), args.variable_count
 
+def check_length(args, max_length):
+    if len(args.minterms) > max_length:
+        raise exceptions.InputLengthError("Too many minterms. ")
 
-def get_mins():
-    terms = []
-    print("Please enter the minterm values separated by a space: ")
-    terms = list(map(int, input().split()))
-    return terms
+def check_minterms(args, max_value):
+    for i in args.minterms:
+        if i > max_value:
+            raise exceptions.InvalidInputError("{} is out of range. " .format(i))
