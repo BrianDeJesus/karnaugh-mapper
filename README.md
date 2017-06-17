@@ -1,4 +1,4 @@
-# Karnaugh map solver
+# Karnaugh mapper
 
 This program simplifies boolean expressions using the k-map method.
 
