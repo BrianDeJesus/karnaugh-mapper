@@ -363,7 +363,7 @@ def two_variable_setup(kmap2):
     sop = two_var_sop(table, columns)
     display_format(sop)
 
-def map_minterms(kmap_vars, minterms, kmap):
+def map_minterms(minterms, kmap):
     for num in minterms:
         for key in kmap:
             if num == key:
@@ -380,13 +380,13 @@ def main():
     print("Minterm values: ", ', '.join(map(str, minterms)))
 
     if kmap_vars == 2:
-        map_minterms(kmap_vars, minterms, kmap2)
+        map_minterms(minterms, kmap2)
         two_variable_setup(kmap2)
     elif kmap_vars == 3:
-        map_minterms(kmap_vars, minterms, kmap3)
+        map_minterms(minterms, kmap3)
         three_variable_setup(kmap3)
     elif kmap_vars == 4:
-        map_minterms(kmap_vars, minterms, kmap4)
+        map_minterms(minterms, kmap4)
         four_variable_setup(kmap4)
 
 
