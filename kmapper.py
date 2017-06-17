@@ -363,6 +363,12 @@ def two_variable_setup(kmap2):
     sop = two_var_sop(table, columns)
     display_format(sop)
 
+def map_minterms(kmap_vars, minterms, kmap):
+    for num in minterms:
+        for key in kmap:
+            if num == key:
+                kmap[key] = 1
+
 def main():
     minterms = []
     kmap_vars = 0
@@ -372,24 +378,15 @@ def main():
     kmap4 = BuildMap().four_var_kmap()
     print("Number of variables: ", kmap_vars)
     print("Minterm values: ", ', '.join(map(str, minterms)))
-    
+
     if kmap_vars == 2:
-        for num in minterms:
-            for key in kmap2:
-                if num == key:
-                    kmap2[key] = 1
+        map_minterms(kmap_vars, minterms, kmap2)
         two_variable_setup(kmap2)
     elif kmap_vars == 3:
-        for num in minterms:
-            for key in kmap3:
-                if num == key:
-                    kmap3[key] = 1
+        map_minterms(kmap_vars, minterms, kmap3)
         three_variable_setup(kmap3)
     elif kmap_vars == 4:
-        for num in minterms:
-            for key in kmap4:
-                if num == key:
-                    kmap4[key] = 1
+        map_minterms(kmap_vars, minterms, kmap4)
         four_variable_setup(kmap4)
 
 
