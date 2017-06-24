@@ -373,19 +373,19 @@ def main():
     minterms = []
     kmap_vars = 0
     minterms, kmap_vars = get_input()
-    kmap2 = BuildMap().two_var_kmap()
-    kmap3 = BuildMap().three_var_kmap()
-    kmap4 = BuildMap().four_var_kmap()
     print("Number of variables: ", kmap_vars)
     print("Minterm values: ", ', '.join(map(str, minterms)))
 
     if kmap_vars == 2:
+        kmap2 = BuildMap().two_var_kmap()
         map_minterms(minterms, kmap2)
         two_variable_setup(kmap2)
     elif kmap_vars == 3:
+        kmap3 = BuildMap().three_var_kmap()
         map_minterms(minterms, kmap3)
         three_variable_setup(kmap3)
     elif kmap_vars == 4:
+        kmap4 = BuildMap().four_var_kmap()
         map_minterms(minterms, kmap4)
         four_variable_setup(kmap4)
 
