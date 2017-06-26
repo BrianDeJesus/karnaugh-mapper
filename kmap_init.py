@@ -2,7 +2,6 @@
 class BuildMap:
     #format initializations
     def __init__(self):
-        self.rows = []
         self.columns = []
         self.map_table = []
     def three_var_map_format(self):
