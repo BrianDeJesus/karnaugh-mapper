@@ -37,9 +37,7 @@ def simplify_alg(sop):
         return simplify_symmetry(lst, a_count, b_count, c_count, d_count)
     elif a_count == b_count:
         return simplify_symmetry(lst, a_count, b_count, c_count, d_count)
-    elif b_count == c_count:
-        return simplify_symmetry(lst, a_count, b_count, c_count, d_count)
-    elif a_count == d_count and b_count == c_count:
+    elif c_count == d_count:
         return simplify_symmetry(lst, a_count, b_count, c_count, d_count)
     else:
         sop = ' + '.join(map(str, sop))
