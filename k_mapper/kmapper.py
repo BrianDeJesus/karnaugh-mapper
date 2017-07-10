@@ -1,8 +1,8 @@
 
 #Boolean expression simplifier using kmap procedure
-from input_getter import get_input
-from kmap_init import BuildMap
-from bool_algebra import simplify_alg
+from k_mapper.input_getter import get_input
+from k_mapper.kmap_init import BuildMap
+from k_mapper.bool_algebra import simplify_alg
 
 def display_format(sop):
     sop = simplify_alg(sop)    #simplify algebra expression
