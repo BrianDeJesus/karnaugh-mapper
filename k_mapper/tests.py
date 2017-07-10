@@ -1,4 +1,4 @@
-import k_mapper.kmapper as kmap
+import kmapper as kmap
 from unittest.mock import patch
 
 def test_two_var():

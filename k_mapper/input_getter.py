@@ -1,6 +1,6 @@
 #input menu
 import argparse
-import k_mapper.exceptions
+import exceptions
 
 
 def get_input():
